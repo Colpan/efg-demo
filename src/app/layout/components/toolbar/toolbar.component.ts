@@ -8,6 +8,8 @@ import { FuseConfigService } from '@fuse/services/config.service';
 import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 
 import { navigation } from 'app/navigation/navigation';
+import { LanguageService } from 'app/language/language.service';
+import { languageList } from 'app/shared/language/language.data';
 
 @Component({
     selector     : 'toolbar',
@@ -21,7 +23,7 @@ export class ToolbarComponent implements OnInit, OnDestroy
     horizontalNavbar: boolean;
     rightNavbar: boolean;
     hiddenNavbar: boolean;
-    languages: any;
+    languages = languageList;
     navigation: any;
     selectedLanguage: any;
     userStatusOptions: any[];
@@ -39,7 +41,8 @@ export class ToolbarComponent implements OnInit, OnDestroy
     constructor(
         private _fuseConfigService: FuseConfigService,
         private _fuseSidebarService: FuseSidebarService,
-        private _translateService: TranslateService
+        private _translateService: TranslateService,
+        private languageService: LanguageService,
     )
     {
         // Set the defaults
@@ -71,19 +74,6 @@ export class ToolbarComponent implements OnInit, OnDestroy
             }
         ];
 
-        this.languages = [
-            {
-                id   : 'en',
-                title: 'English',
-                flag : 'us'
-            },
-            {
-                id   : 'tr',
-                title: 'Turkish',
-                flag : 'tr'
-            }
-        ];
-
         this.navigation = navigation;
 
         // Set the private defaults
@@ -97,7 +87,7 @@ export class ToolbarComponent implements OnInit, OnDestroy
     /**
      * On init
      */
-    ngOnInit(): void
+    async ngOnInit()
     {
         // Subscribe to the config changes
         this._fuseConfigService.config
@@ -109,7 +99,8 @@ export class ToolbarComponent implements OnInit, OnDestroy
             });
 
         // Set the selected language from default languages
-        this.selectedLanguage = _.find(this.languages, {id: this._translateService.currentLang});
+        this.selectedLanguage = await this.languageService.getLanguage();
+        console.log(this.selectedLanguage, 'yo')
     }
 
     /**
@@ -152,12 +143,9 @@ export class ToolbarComponent implements OnInit, OnDestroy
      *
      * @param lang
      */
-    setLanguage(lang): void
+    setLanguage(language: string): void
     {
-        // Set the selected language for the toolbar
-        this.selectedLanguage = lang;
-
-        // Use the selected language for translations
-        this._translateService.use(lang.id);
+      this.languageService.saveLanguage(language);
+      this.selectedLanguage = language;
     }
 }
