@@ -1,0 +1,9 @@
+<div class="container">
+  <h1 class="mat-h1">Select Language</h1>
+  <hr>
+  <mat-list>
+    <div *ngFor="let language of languageList">
+      <mat-list-item (click)="selectLanguage(language)">{{language}}</mat-list-item>
+    </div>
+  </mat-list>
+</div>
