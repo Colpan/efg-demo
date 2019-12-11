@@ -71,7 +71,7 @@
 
                 <button mat-menu-item *ngFor="let language of languages" (click)="setLanguage(language)">
                     <span fxLayout="row" fxLayoutAlign="start center">
-                        <span class="iso">{{language}}</span>
+                        <span class="iso">{{language.name}}</span>
                     </span>
                 </button>
 

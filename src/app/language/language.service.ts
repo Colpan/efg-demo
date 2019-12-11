@@ -1,5 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { LOCAL_STORAGE } from '@ng-toolkit/universal';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
@@ -7,12 +8,17 @@ import { LOCAL_STORAGE } from '@ng-toolkit/universal';
 export class LanguageService {
 
   constructor(
-    @Inject(LOCAL_STORAGE) private localStorage: any
+    @Inject(LOCAL_STORAGE) private localStorage: any,
+    private translateService: TranslateService,
   ) { }
 
-  async saveLanguage(language: string) {
-    // this.removeLanguage();
-    await this.localStorage.setItem('language', language);
+  async saveLanguage(languageId: string) {
+    this.setLanguage(languageId);
+    await this.localStorage.setItem('language', languageId);
+  }
+
+  setLanguage(languageId) {
+    this.translateService.use(languageId);
   }
 
   async removeLanguage() {
