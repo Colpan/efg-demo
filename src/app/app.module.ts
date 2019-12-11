@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
@@ -23,6 +23,8 @@ import { AppStoreModule } from 'app/store/store.module';
 import { LayoutModule } from 'app/layout/layout.module';
 import { LanguageModule } from './language/language.module';
 import { RegisterModule } from './register/register.module';
+import {TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 const appRoutes: Routes = [
     {
@@ -45,6 +47,15 @@ const appRoutes: Routes = [
         InMemoryWebApiModule.forRoot(FakeDbService, {
             delay             : 0,
             passThruUnknownUrl: true
+        }),
+
+        // Translate
+        TranslateModule.forRoot({
+          loader: {
+              provide: TranslateLoader,
+              useFactory: HttpLoaderFactory,
+              deps: [HttpClient]
+          }
         }),
 
         // Material moment date module
@@ -73,6 +84,9 @@ const appRoutes: Routes = [
         AppComponent
     ]
 })
-export class AppModule
-{
+export class AppModule {
+}
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
 }
