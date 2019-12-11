@@ -100,7 +100,6 @@ export class ToolbarComponent implements OnInit, OnDestroy
 
         // Set the selected language from default languages
         this.selectedLanguage = await this.languageService.getLanguage();
-        console.log(this.selectedLanguage, 'yo')
     }
 
     /**
