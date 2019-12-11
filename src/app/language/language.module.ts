@@ -12,7 +12,6 @@ const routes: Route[] = [
   }
 ]
 
-
 @NgModule({
   declarations: [LanguageComponent],
   imports: [
