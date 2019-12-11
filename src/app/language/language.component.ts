@@ -36,7 +36,7 @@ export class LanguageComponent implements OnInit {
   ngOnInit() {
   }
 
-  selectLanguage(language: string) {
-    this.languageService.saveLanguage(language);
+  selectLanguage(language) {
+    this.languageService.saveLanguage(language.id);
   }
 }
