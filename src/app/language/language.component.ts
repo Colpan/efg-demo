@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { languageList } from 'app/shared/language/language.data';
 import { FuseConfigService } from '@fuse/services/config.service';
 import { LanguageService } from './language.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-language',
@@ -14,6 +15,7 @@ export class LanguageComponent implements OnInit {
   constructor(
     private fuseConfigService: FuseConfigService,
     private languageService: LanguageService,
+    private router: Router,
   ) {
     this.fuseConfigService.config = {
       layout: {
@@ -38,5 +40,6 @@ export class LanguageComponent implements OnInit {
 
   selectLanguage(language: string) {
     this.languageService.saveLanguage(language);
+    this.router.navigate(['register']);
   }
 }

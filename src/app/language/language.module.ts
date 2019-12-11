@@ -10,7 +10,7 @@ const routes: Route[] = [
     path: '',
     component: LanguageComponent,
   }
-]
+];
 
 
 @NgModule({
