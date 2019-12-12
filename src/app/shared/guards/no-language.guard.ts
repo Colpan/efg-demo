@@ -25,12 +25,8 @@ export class NoLanguageGuard implements CanActivate {
     if (!language) {
       return true;
     } else {
-      // FIX: Return true will be deleted. it will return false and navigate to next page.
-      // FIX will happen when the next page is done
-
-      // this.router.navigate(['/register']);
-      // return false;
-      return true;
+      this.router.navigate(['/register']);
+      return false;
     }
   }
 }
