@@ -1,0 +1,28 @@
+.container {
+  width: 100%;
+
+  p {
+    font-size: 23px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 35%;
+    align-self: center;
+    margin-bottom: 40px;
+  }
+
+  .button-container {
+    width: 40%;
+    margin-bottom: 32px;
+    align-self: center;
+  }
+
+  .skip-button {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  button {
+    margin: 8px 0px;
+    padding: 5px;
+  }
+}

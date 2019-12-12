@@ -66,8 +66,7 @@ export class RegisterComponent implements OnInit {
     if (valid) {
       const userData = this.registerForm.value;
       this.registerService.register({userData}).subscribe((res: any) => {
-        // navigate to next page. DO this when next ticket
-        // this.router.navigate(['']);
+        this.router.navigate(['membership']);
       });
     }
   }
