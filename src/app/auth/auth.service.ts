@@ -26,7 +26,7 @@ export class AuthService {
     } catch (e) { }
   }
 
-  async SignOuUserFromLocal() {
+  async SignOutUserFromLocal() {
     await this.localStorage.removeItem('user');
     await this.localStorage.removeItem('token');
   }
