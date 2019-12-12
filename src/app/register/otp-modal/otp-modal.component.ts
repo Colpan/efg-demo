@@ -41,8 +41,12 @@ export class OtpModalComponent implements OnInit {
         phoneNo,
         otp: parseInt(otp)
       }
-      this.registerService.validateOTP({otpData}).subscribe((res) => {
-        this.dialogRef.close({ verified: true, otp });
+      this.registerService.validateOTP({otpData}).subscribe((res: any) => {
+        if (res.dStatus !== 400) {
+          this.dialogRef.close({ verified: true, otp });
+        } else {
+          this.validOTP = false;
+        }
       }, (error) => {
         this.validOTP = false;
       })

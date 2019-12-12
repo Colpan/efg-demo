@@ -4,7 +4,6 @@ import { FuseConfigService } from '@fuse/services/config.service';
 import { LanguageService } from 'app/language/language.service';
 import { fuseAnimations } from '@fuse/animations';
 import { RegisterService } from './register.service';
-import { AuthService } from 'app/auth/auth.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { OtpModalComponent } from './otp-modal/otp-modal.component';
@@ -25,7 +24,6 @@ export class RegisterComponent implements OnInit {
     private fuseConfigService: FuseConfigService,
     private languageService: LanguageService,
     private registerService: RegisterService,
-    private authService: AuthService,
     private router: Router,
     public formBuilder: FormBuilder,
     public matDialog: MatDialog,
@@ -75,7 +73,6 @@ export class RegisterComponent implements OnInit {
       this.registerService.register({userData}).subscribe((res: any) => {
         // navigate to next page. DO this when next ticket
         // this.router.navigate(['']);
-        this.authService.saveToken(res.data.token);
       });
     }
   }

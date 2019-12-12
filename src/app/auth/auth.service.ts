@@ -11,9 +11,9 @@ export class AuthService {
     @Inject(LOCAL_STORAGE) private localStorage: any
   ) { }
 
-  saveUserToLocal(token, admin) {
-    const user = new User(admin);
-    this.localStorage.setItem('admin', JSON.stringify(user));
+  saveUserToLocal(token, user) {
+    const saveUser = new User(user);
+    this.localStorage.setItem('admin', JSON.stringify(saveUser));
     this.localStorage.setItem('token', token);
   }
 
