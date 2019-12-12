@@ -8,29 +8,38 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { FuseSharedModule } from '@fuse/shared.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LanguageGuard } from 'app/shared/guards/language.guard';
+import { MatDialogModule } from '@angular/material/dialog';
+import { OtpModalComponent } from './otp-modal/otp-modal.component';
 
 const routes: Route[] = [
   {
     path: 'register',
     component: RegisterComponent,
+    canActivate: [LanguageGuard]
   }
 ];
 
-
 @NgModule({
-  declarations: [RegisterComponent],
+  declarations: [
+    RegisterComponent,
+    OtpModalComponent
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     MatButtonModule,
+    MatDialogModule,
     MatCheckboxModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
     FuseSharedModule
+  ],
+  entryComponents: [
+    OtpModalComponent
   ]
 })
 export class RegisterModule { }

@@ -7,11 +7,11 @@ register {
     background: url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat;
     background-size: cover;
     text-align: center;
-    margin: auto;
 
     #register-form-wrapper {
       flex: 1 0 auto;
       padding: 32px;
+      text-align: center;
 
       @include media-breakpoint('xs') {
         padding: 16px;
@@ -45,6 +45,7 @@ register {
 
           mat-form-field {
             width: 100%;
+            margin: 0px;
           }
 
           mat-checkbox {
