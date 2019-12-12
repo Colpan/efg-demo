@@ -48,15 +48,10 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      phoneNo: new FormControl('', Validators.required),
       firstName: new FormControl('',Validators.required),
       lastName: new FormControl('',Validators.required),
-      country: new FormControl('',Validators.required),
-      city: new FormControl('',Validators.required),
-      name: new FormControl('',Validators.required),
-      connectionType: new FormControl('',Validators.required),
-      language: new FormControl('',Validators.required),
-      otp: new FormControl()
+      phoneNo: new FormControl('', Validators.required),
+      otp: new FormControl(),
     });
     this.setLanguage();
   }
@@ -82,7 +77,6 @@ export class RegisterComponent implements OnInit {
     if (valid) {
       const phoneNumber = this.registerForm.value['phoneNo'];
       this.registerService.requestOTP(phoneNumber).subscribe((res: any) => {
-        this.isOTPVerified = true;
         this.openOTPModal(phoneNumber);
       });
     }
@@ -93,7 +87,7 @@ export class RegisterComponent implements OnInit {
       data: phoneNumber
     });
     dialogRef.afterClosed().subscribe((res) => {
-      if (res.verified) {
+      if (res && res.verified) {
         this.isOTPVerified = true;
         this.registerForm.patchValue({ otp: res.otp });
       }
