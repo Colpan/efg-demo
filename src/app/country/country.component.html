@@ -1,0 +1,5 @@
+<div class="container">
+  <app-country-list [countries]="countries" (selectedCountry)="getCity($event)"></app-country-list>
+  <hr>
+  <app-city-list [cities]="cities" (selectedCity)="setCity($event)"></app-city-list>
+</div>
