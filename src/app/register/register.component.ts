@@ -72,6 +72,7 @@ export class RegisterComponent implements OnInit {
         const { token, user } = res.data[0];
         this.authService.saveUserToLocal(token, new User(user));
         this.router.navigate(['country']);
+//        this.router.navigate(['membership']);
       });
     }
   }

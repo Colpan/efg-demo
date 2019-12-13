@@ -25,6 +25,7 @@ import { LanguageModule } from './language/language.module';
 import { RegisterModule } from './register/register.module';
 import {TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { SplashModule } from './splash/splash.module';
 import { CountryModule } from './country/country.module';
 
 const appRoutes: Routes = [
@@ -36,7 +37,7 @@ const appRoutes: Routes = [
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
     ],
     imports     : [
         BrowserModule,
@@ -80,6 +81,7 @@ const appRoutes: Routes = [
         AppStoreModule,
         LanguageModule,
         RegisterModule,
+        SplashModule,
         CountryModule,
     ],
     bootstrap   : [
