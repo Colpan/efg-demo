@@ -1,0 +1,15 @@
+<div class="container">
+  <mat-form-field>
+    <mat-label>Where are you ordering from?</mat-label>
+    <mat-select>
+      <div *ngFor="let country of countries">
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <i class="material-icons mr-4">flag</i>
+          <mat-option style="width: 100%" value="country.name_en" (click)="select(country)" >
+            {{country.name_en}}
+          </mat-option>
+        </div>
+      </div>
+    </mat-select>
+  </mat-form-field>
+</div>
