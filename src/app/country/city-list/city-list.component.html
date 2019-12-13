@@ -1,0 +1,7 @@
+<div class="container">
+  <mat-list role="list">
+    <div *ngFor="let city of cities">
+      <mat-list-item (click)="select(city)" role="listitem">{{city.name_en}}</mat-list-item>
+    </div>
+  </mat-list>
+</div>

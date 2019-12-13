@@ -63,24 +63,16 @@
                     class="language-button"
                     [matMenuTriggerFor]="languageMenu">
                 <div fxLayout="row" fxLayoutAlign="center center">
-                    <img class="flag mr-8" [src]="'assets/icons/flags/'+selectedLanguage.flag+'.png'">
-                    <span class="iso text-uppercase">{{selectedLanguage.id}}</span>
+                    <span class="iso text-uppercase">{{selectedLanguage}}</span>
                 </div>
             </button>
 
             <mat-menu #languageMenu="matMenu" [overlapTrigger]="false">
 
-                <button mat-menu-item *ngFor="let lang of languages" (click)="setLanguage(lang)">
+                <button mat-menu-item *ngFor="let language of languages" (click)="setLanguage(language)">
                     <span fxLayout="row" fxLayoutAlign="start center">
-                        <img class="flag mr-16" [src]="'assets/icons/flags/'+lang.flag+'.png'">
-                        <span class="iso">{{lang.title}}</span>
+                        <span class="iso">{{language.name}}</span>
                     </span>
-                </button>
-
-                <button mat-menu-item [routerLink]="'/components/multi-language'">
-                    <div fxLayout="row" fxLayoutAlign="start center">
-                        <span>Learn more</span>
-                    </div>
                 </button>
 
             </mat-menu>

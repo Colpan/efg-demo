@@ -1,0 +1,59 @@
+<div id="register" fxLayout="column" style="margin: auto; text-align: center" fxLayoutAlign="center center">
+
+  <div id="register-form-wrapper">
+
+    <div id="register-form" [@animate]="{value:'*',params:{duration:'300ms',y:'100px'}}">
+
+      <div class="title">CREATE AN ACCOUNT</div>
+
+      <form name="registerForm" [formGroup]="registerForm" fxLayout="column">
+
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstName">
+          <mat-error>
+            First name is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastName">
+          <mat-error>
+            Last name is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Phone Number</mat-label>
+          <input matInput formControlName="phoneNo">
+          <mat-error>
+            Phone number is required
+          </mat-error>
+        </mat-form-field>
+
+      </form>
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <button mat-raised-button
+           color="accent"
+           class="submit-button mb-8"
+           aria-label="CREATE AN ACCOUNT"
+           (click)="requestOTP()"
+           [disabled]="registerForm.invalid">
+          Send Verification Code
+        </button>
+        <button mat-raised-button
+          color="accent"
+          class="submit-button"
+          aria-label="CREATE AN ACCOUNT"
+          *ngIf="isOTPVerified"
+          (click)="submit()"
+          [disabled]="registerForm.invalid || !isOTPVerified">
+          CREATE AN ACCOUNT
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
