@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+
+  mat-list-item {
+    cursor: pointer;
+  }
+
+  mat-list-item:hover {
+    text-decoration: underline;
+  }
+}

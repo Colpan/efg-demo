@@ -7,6 +7,8 @@ import { RegisterService } from './register.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { OtpModalComponent } from './otp-modal/otp-modal.component';
+import { AuthService } from 'app/auth/auth.service';
+import { User } from 'app/model/user.model';
 
 @Component({
   selector: 'app-register',
@@ -23,6 +25,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fuseConfigService: FuseConfigService,
     private languageService: LanguageService,
+    private authService: AuthService,
     private registerService: RegisterService,
     private router: Router,
     public formBuilder: FormBuilder,
@@ -66,8 +69,9 @@ export class RegisterComponent implements OnInit {
     if (valid) {
       const userData = this.registerForm.value;
       this.registerService.register({userData}).subscribe((res: any) => {
-        // navigate to next page. DO this when next ticket
-        // this.router.navigate(['']);
+        const { token, user } = res.data[0];
+        this.authService.saveUserToLocal(token, new User(user));
+        this.router.navigate(['country']);
       });
     }
   }
