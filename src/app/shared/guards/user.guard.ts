@@ -17,12 +17,14 @@ export class UserGuard implements CanActivate {
     state: RouterStateSnapshot,
   ): Observable<boolean> | Promise<boolean> | boolean {
     let user = '';
+    let token = '';
     try {
       user = this.LocalStorage.getItem('user');
+      token = this.LocalStorage.getItem('token');
     }
     catch{ }
 
-    if (!user) {
+    if (!user && !token) {
       this.router.navigate(['register']);
       return false
     }
