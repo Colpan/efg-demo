@@ -8,6 +8,7 @@ import { UserGuard } from 'app/shared/guards/user.guard';
 import { CountryGuard } from 'app/shared/guards/country.guard';
 import { RouterModule, Route } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
+import { PromotionComponent } from './promotion/promotion.component';
 
 const routes: Route[] = [
   {
@@ -25,7 +26,8 @@ const routes: Route[] = [
   declarations: [
     CompanyComponent,
     HomeComponent,
-    LocationComponent
+    LocationComponent,
+    PromotionComponent
   ],
   imports: [
     CommonModule,
