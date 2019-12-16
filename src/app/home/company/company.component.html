@@ -1,0 +1,11 @@
+<div class="container">
+  <h2 class="custom-title">Companies</h2>
+  <div class="company-container">
+    <div *ngFor="let company of companies">
+      <mat-card>
+        <img mat-card-image [src]="company.logo">
+        <mat-card-title>{{company.name_en | titlecase}}</mat-card-title>
+      </mat-card>
+    </div>
+  </div>
+</div>
