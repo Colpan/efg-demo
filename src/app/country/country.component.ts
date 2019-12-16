@@ -4,6 +4,7 @@ import { Country } from 'app/model/country.model';
 import { City } from 'app/model/city.model';
 import { AuthService } from 'app/auth/auth.service';
 import { FuseConfigService } from '@fuse/services/config.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-country',
@@ -20,6 +21,7 @@ export class CountryComponent implements OnInit {
     private countryService: CountryService,
     private authService: AuthService,
     private fuseConfigService: FuseConfigService,
+    public router: Router,
   ) {
     this.fuseConfigService.config = {
       layout: {
@@ -51,7 +53,7 @@ export class CountryComponent implements OnInit {
 
   getCity(country: Country) {
     this.selectedCountry = country;
-    this.countryService.getCity(country._id).subscribe((res: any) => {
+    this.countryService.getCity(country.id).subscribe((res: any) => {
       if (res.cities) {
         this.cities = (res.cities as City[]).map(city => new City(city));
       } else {
@@ -64,6 +66,6 @@ export class CountryComponent implements OnInit {
   setCity(city: City) {
     this.selectedCity = city;
     this.authService.saveCountryAndCity(this.selectedCountry, this.selectedCity);
-    // NAVIGATE TO NEXT PAGE FROM HERE
+    this.router.navigate(['home']);
   }
 }
