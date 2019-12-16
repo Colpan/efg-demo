@@ -23,9 +23,10 @@ import { AppStoreModule } from 'app/store/store.module';
 import { LayoutModule } from 'app/layout/layout.module';
 import { LanguageModule } from './language/language.module';
 import { RegisterModule } from './register/register.module';
-import {TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CountryModule } from './country/country.module';
+import { HomeModule } from './home/home.module';
 
 const appRoutes: Routes = [
     {
@@ -81,6 +82,7 @@ const appRoutes: Routes = [
         LanguageModule,
         RegisterModule,
         CountryModule,
+        HomeModule,
     ],
     bootstrap   : [
         AppComponent
