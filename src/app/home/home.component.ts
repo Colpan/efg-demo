@@ -5,6 +5,7 @@ import { City } from 'app/model/city.model';
 import { Country } from 'app/model/country.model';
 import { Company } from 'app/model/company.model';
 import { FuseConfigService } from '@fuse/services/config.service';
+import { Promotion } from 'app/model/promotion.model';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,8 @@ export class HomeComponent implements OnInit {
   city: City;
   country: Country;
   companies: Company[] = [];
-  isFetchingCompanies = false;
+  promotions: Promotion[] = [];
+  isFetchingCity = false;
 
   constructor(
     private companyService: CompanyService,
@@ -44,17 +46,26 @@ export class HomeComponent implements OnInit {
     const { city, country }  = await this.authService.getCountryAndCity();
     this.city = city;
     this.country = country;
-    this.isFetchingCompanies = true;
-    this.companyService.getCompanies(city.id).toPromise().then((res: any) => {
-      if (res && res.city && res.city.companies) {
-        this.companies = (res.city.companies).map(company => new Company(company));
-        this.isFetchingCompanies = false;
-      } else {
-        this.isFetchingCompanies = false;
-      }
+    this.isFetchingCity = true;
+    this.companyService.getCompaniesAndPromotions(city.id).toPromise().then((res: any) => {
+      this.getCompanies(res);
+      this.getPromotion(res);
+      this.isFetchingCity = false;
     }, (error) => {
-      this.isFetchingCompanies = false;
+      this.isFetchingCity = false;
     })
+  }
+
+  getCompanies(res) {
+    if (res && res.city && res.city.companies) {
+      this.companies = (res.city.companies).map(company => new Company(company));
+    }
+  }
+
+  getPromotion(res) {
+    if (res && res.city && res.city.promotions) {
+      this.promotions = (res.city.promotions).map(promotion => new Promotion(promotion));
+    }
   }
 
 }

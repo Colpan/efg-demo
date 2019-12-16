@@ -1,0 +1,17 @@
+<div class="container">
+  <h2 class="custom-title">Promotions</h2>
+  <div class="promotion-container">
+    <div *ngIf="(promotions.length === 0) && !isFetchingCity">
+      <p>No promotions to show.</p>
+    </div>
+    <div *ngFor="let promotion of promotions">
+      <mat-card>
+        <img mat-card-image [src]="promotion.image">
+        <div class="promotion-detail">
+          <mat-card-title>{{promotion.name_en | titlecase}}</mat-card-title>
+          <mat-card-subtitle>${{promotion.from}}</mat-card-subtitle>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
