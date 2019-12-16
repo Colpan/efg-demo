@@ -1,6 +1,9 @@
 <div class="container">
   <h2 class="custom-title">Companies</h2>
   <div class="company-container">
+    <div *ngIf="(companies.length === 0) && !isFetching">
+      <p>No company to show.</p>
+    </div>
     <div *ngFor="let company of companies">
       <mat-card>
         <img mat-card-image [src]="company.logo">

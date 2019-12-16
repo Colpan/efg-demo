@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   city: City;
   country: Country;
   companies: Company[] = [];
+  isFetchingCompanies = false;
 
   constructor(
     private companyService: CompanyService,
@@ -43,12 +44,16 @@ export class HomeComponent implements OnInit {
     const { city, country }  = await this.authService.getCountryAndCity();
     this.city = city;
     this.country = country;
+    this.isFetchingCompanies = true;
     this.companyService.getCompanies(city.id).toPromise().then((res: any) => {
-      if (res.city.companies) {
+      if (res && res.city && res.city.companies) {
         this.companies = (res.city.companies).map(company => new Company(company));
+        this.isFetchingCompanies = false;
+      } else {
+        this.isFetchingCompanies = false;
       }
     }, (error) => {
-      console.log(error, 'error')
+      this.isFetchingCompanies = false;
     })
   }
 
