@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
     this.city = city;
     this.country = country;
     this.isFetchingCity = true;
-    this.companyService.getCityCompaniesAndPromotions(city.id).toPromise().then((res: any) => {
+    this.companyService.getCompaniesAndPromotions(city.id).toPromise().then((res: any) => {
       this.getCompanies(res);
       this.getPromotion(res);
       this.isFetchingCity = false;

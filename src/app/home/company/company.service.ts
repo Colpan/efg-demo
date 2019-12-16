@@ -11,7 +11,7 @@ export class CompanyService {
     private http: HttpClient,
   ) { }
 
-  getCityCompaniesAndPromotions(cityId: string) {
+  getCompaniesAndPromotions(cityId: string) {
     return this.http.get(`${environment.NODE_URI}/device/v1/city/${cityId}`);
   }
 }
