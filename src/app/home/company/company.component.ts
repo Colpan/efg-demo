@@ -10,7 +10,7 @@ import { Company } from 'app/model/company.model';
 })
 export class CompanyComponent implements OnInit {
   @Input() companies: Company[] = [];
-  @Input() isFetching = false;
+  @Input() isFetchingCity = false;
 
   constructor() { }
 

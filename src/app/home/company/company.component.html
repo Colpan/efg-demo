@@ -1,7 +1,7 @@
 <div class="container">
   <h2 class="custom-title">Companies</h2>
   <div class="company-container">
-    <div *ngIf="(companies.length === 0) && !isFetching">
+    <div *ngIf="(companies.length === 0) && !isFetchingCity">
       <p>No company to show.</p>
     </div>
     <div *ngFor="let company of companies">
