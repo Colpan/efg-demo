@@ -162,7 +162,9 @@ export class AppComponent implements OnInit, OnDestroy
 
     async setLanguage() {
       const languageId = await this.languageService.getLanguage();
-      this.languageService.setLanguage(languageId);
+      if (languageId) {
+        this.languageService.setLanguage(languageId);
+      }
     }
 
     /**

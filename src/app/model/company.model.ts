@@ -1,4 +1,3 @@
-import { Promotion } from './promotion.model';
 import { MenuCategory } from './menu-category.model';
 
 export class Company {
@@ -10,19 +9,19 @@ export class Company {
   subtitle_en: string;
   subtitle_kh: string;
   acceptOrder: boolean;
-  menuCategory: MenuCategory[];
+  // menuCategories: MenuCategory[];
   logo: string;
 
   constructor(company) {
     this.id = company.id;
-    this.name_en = company.name_En;
-    this.name_kh = company.name_Kh;
-    this.title_en = company.title_En;
-    this.title_kh = company.title_Kh;
-    this.subtitle_en = company.subtitle_En;
-    this.subtitle_kh = company.subtitle_Kh;
+    this.name_en = company.name_en;
+    this.name_kh = company.name_kh;
+    this.title_en = company.title_en;
+    this.title_kh = company.title_kh;
+    this.subtitle_en = company.subtitle_en;
+    this.subtitle_kh = company.subtitle_kh;
     this.acceptOrder = company.acceptOrder;
     this.logo = company.logo;
-    this.menuCategory = company.menuCategory;
+    // this.menuCategories = company.menuCategory ? ;
   }
 }

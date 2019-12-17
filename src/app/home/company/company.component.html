@@ -6,8 +6,9 @@
     </div>
     <div *ngFor="let company of companies">
       <mat-card (click)="selectCompany(company.id)">
-        <img mat-card-image [src]="company.logo">
-        <mat-card-title>{{company.name_en | titlecase}}</mat-card-title>
+        <img *ngIf="company.logo" mat-card-image [src]="company.logo">
+        <h3 *ngIf="!company.logo">No Image</h3>
+        <mat-card-title>{{ company | language : 'name_' }}</mat-card-title>
       </mat-card>
     </div>
   </div>

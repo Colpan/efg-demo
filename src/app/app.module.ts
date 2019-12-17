@@ -29,6 +29,7 @@ import { SplashModule } from './splash/splash.module';
 import { CountryModule } from './country/country.module';
 import { HomeModule } from './home/home.module';
 import { CompanyDetailModule } from './company-detail/company-detail.module';
+import { FusePipesModule } from '@fuse/pipes/pipes.module';
 
 const appRoutes: Routes = [
     {
@@ -46,7 +47,7 @@ const appRoutes: Routes = [
         BrowserAnimationsModule,
         HttpClientModule,
         RouterModule.forRoot(appRoutes),
-
+        FusePipesModule,
         TranslateModule.forRoot(),
         InMemoryWebApiModule.forRoot(FakeDbService, {
             delay             : 0,

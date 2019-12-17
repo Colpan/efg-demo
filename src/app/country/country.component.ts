@@ -47,7 +47,11 @@ export class CountryComponent implements OnInit {
 
   getCountries() {
     this.countryService.getCountries().subscribe((res: any) => {
-      this.countries = (res.countries as Country[]).map(country => new Country(country));
+      this.countries = (res.countries as Country[])
+        .map(country => new Country(country))
+        .sort((countryA, countryB) =>{
+          return (countryA.name_en > countryB.name_en) ? 1 : -1;
+        });
     });
   }
 
@@ -61,7 +65,6 @@ export class CountryComponent implements OnInit {
       }
     });
   }
-
 
   setCity(city: City) {
     this.selectedCity = city;

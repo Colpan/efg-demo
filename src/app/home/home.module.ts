@@ -9,6 +9,7 @@ import { CountryGuard } from 'app/shared/guards/country.guard';
 import { RouterModule, Route } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { PromotionComponent } from './promotion/promotion.component';
+import { FusePipesModule } from '@fuse/pipes/pipes.module';
 
 const routes: Route[] = [
   {
@@ -17,7 +18,7 @@ const routes: Route[] = [
     canActivate: [
       LanguageGuard,
       UserGuard,
-      CountryGuard
+      CountryGuard,
     ]
   }
 ];
@@ -27,11 +28,12 @@ const routes: Route[] = [
     CompanyComponent,
     HomeComponent,
     LocationComponent,
-    PromotionComponent
+    PromotionComponent,
   ],
   imports: [
     CommonModule,
     MatCardModule,
+    FusePipesModule,
     RouterModule.forChild(routes),
   ]
 })

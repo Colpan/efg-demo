@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
     this.fuseConfigService.config = {
       layout: {
         toolbar  : {
-          hidden: true
+          hidden: false
         },
         footer   : {
           hidden: true

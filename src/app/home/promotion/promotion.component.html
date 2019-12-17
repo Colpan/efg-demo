@@ -8,8 +8,8 @@
       <mat-card>
         <img mat-card-image [src]="promotion.image">
         <div class="promotion-detail">
-          <mat-card-title>{{promotion.name_en | titlecase}}</mat-card-title>
-          <mat-card-subtitle>${{promotion.from}}</mat-card-subtitle>
+          <mat-card-title>{{ promotion | language : 'name_' }}</mat-card-title>
+          <mat-card-subtitle>${{ promotion.from }}</mat-card-subtitle>
         </div>
       </mat-card>
     </div>

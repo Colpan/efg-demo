@@ -138,6 +138,6 @@ export class ToolbarComponent implements OnInit, OnDestroy {
    */
   setLanguage(language): void {
     this.languageService.saveLanguage(language.id);
-    this.selectedLanguage = language;
+    this.selectedLanguage = language.id;
   }
 }

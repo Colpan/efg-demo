@@ -63,13 +63,13 @@ export class CompanyDetailComponent implements OnInit {
   }
 
   processCategory() {
-    this.company.menuCategory.map(async category => {
-      return await this.getCategoryDetail(category);
-    });
-    this.company.menuCategory.map(category => {
-      category.retailProductGroups.map(productGroup => {
-        this.retailProductGroups.push(productGroup);
-      });
-    });
+    // this.company.menuCategory.map(async category => {
+    //   return await this.getCategoryDetail(category);
+    // });
+    // this.company.menuCategory.map(category => {
+    //   category.retailProductGroups.map(productGroup => {
+    //     this.retailProductGroups.push(productGroup);
+    //   });
+    // });
   }
 }

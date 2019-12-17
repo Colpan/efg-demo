@@ -9,7 +9,6 @@ import { Country } from 'app/model/country.model';
 export class CountryListComponent implements OnInit {
   @Input() countries: Country[] = [];
   @Output() selectedCountry: EventEmitter<Country> = new EventEmitter<Country>();
-  showSelectedCountry = '';
 
   constructor() { }
 
@@ -20,7 +19,6 @@ export class CountryListComponent implements OnInit {
     if (!country) {
       return;
     }
-    this.showSelectedCountry = country.name_en;
     this.selectedCountry.emit(country);
   }
 }
