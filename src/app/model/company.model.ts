@@ -1,3 +1,6 @@
+import { Promotion } from './promotion.model';
+import { MenuCategory } from './menu-category.model';
+
 export class Company {
   id: string;
   name_en: string;
@@ -7,6 +10,7 @@ export class Company {
   subtitle_en: string;
   subtitle_kh: string;
   acceptOrder: boolean;
+  menuCategory: MenuCategory[];
   logo: string;
 
   constructor(company) {
@@ -19,5 +23,6 @@ export class Company {
     this.subtitle_kh = company.subtitle_Kh;
     this.acceptOrder = company.acceptOrder;
     this.logo = company.logo;
+    this.menuCategory = company.menuCategory;
   }
 }

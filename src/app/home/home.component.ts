@@ -26,9 +26,6 @@ export class HomeComponent implements OnInit {
   ) {
     this.fuseConfigService.config = {
       layout: {
-        navbar   : {
-          hidden: true
-        },
         toolbar  : {
           hidden: true
         },
@@ -40,7 +37,7 @@ export class HomeComponent implements OnInit {
         }
       }
     };
-   }
+  }
 
   async ngOnInit() {
     const { city, country }  = await this.authService.getCountryAndCity();

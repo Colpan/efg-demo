@@ -5,7 +5,7 @@
       <p>No company to show.</p>
     </div>
     <div *ngFor="let company of companies">
-      <mat-card>
+      <mat-card (click)="selectCompany(company.id)">
         <img mat-card-image [src]="company.logo">
         <mat-card-title>{{company.name_en | titlecase}}</mat-card-title>
       </mat-card>
