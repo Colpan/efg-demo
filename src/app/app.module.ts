@@ -28,6 +28,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SplashModule } from './splash/splash.module';
 import { CountryModule } from './country/country.module';
 import { HomeModule } from './home/home.module';
+import { CompanyDetailModule } from './company-detail/company-detail.module';
 
 const appRoutes: Routes = [
     {
@@ -85,6 +86,7 @@ const appRoutes: Routes = [
         SplashModule,
         CountryModule,
         HomeModule,
+        CompanyDetailModule
     ],
     bootstrap   : [
         AppComponent
