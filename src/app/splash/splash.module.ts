@@ -10,7 +10,9 @@ const routes: Route[] = [
   {
     path: 'membership',
     component: MembershipComponent,
-    canActivate: [LanguageGuard]
+    canActivate: [
+      LanguageGuard
+    ]
   }
 ];
 

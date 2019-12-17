@@ -1,0 +1,7 @@
+<div class="container" *ngIf="retailGroup && retailGroup.products && retailGroup.products.length > 0">
+  <mat-list role="list">
+    <div *ngFor="let product of retailGroup.products">
+      <mat-list-item role="listitem">{{product.description_En}}</mat-list-item>
+    </div>
+  </mat-list>
+</div>

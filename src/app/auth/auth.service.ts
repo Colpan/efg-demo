@@ -49,7 +49,7 @@ export class AuthService {
       const stringCountry = await this.localStorage.getItem('country');
       const stringCity = await this.localStorage.getItem('city');
       if (stringCountry) country = new Country(JSON.parse(stringCountry));
-      if (stringCity) city = new City(JSON.parse(stringCountry));
+      if (stringCity) city = new City(JSON.parse(stringCity));
       return { city, country };
     } catch (e) { }
   }

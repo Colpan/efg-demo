@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FuseConfigService } from '@fuse/services/config.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-membership',
@@ -10,6 +11,7 @@ export class MembershipComponent implements OnInit {
 
   constructor(
     private fuseConfigService: FuseConfigService,
+    public router: Router,
   ) {
     this.fuseConfigService.config = {
       layout: {
@@ -32,4 +34,7 @@ export class MembershipComponent implements OnInit {
   ngOnInit() {
   }
 
+  skip() {
+    this.router.navigate(['register']);
+  }
 }

@@ -40,6 +40,6 @@ export class LanguageComponent implements OnInit {
 
   selectLanguage(language) {
     this.languageService.saveLanguage(language.id);
-    this.router.navigate(['register']);
+    this.router.navigate(['membership']);
   }
 }

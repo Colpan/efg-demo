@@ -1,0 +1,12 @@
+<div class="container">
+  <mat-progress-bar *ngIf="retailProductGroups.length === 0" mode="indeterminate"></mat-progress-bar>
+  <div *ngIf="retailProductGroups">
+    <mat-tab-group>
+      <div *ngFor="let retailGroup of retailProductGroups">
+        <mat-tab [label]="retailGroup.description">
+          <app-company-tab [retailGroup]="retailGroup"></app-company-tab>
+        </mat-tab>
+      </div>
+    </mat-tab-group>
+  </div>
+</div>

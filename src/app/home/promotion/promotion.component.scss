@@ -1,0 +1,34 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .custom-title {
+    border-bottom: 1px gray solid;
+  }
+
+  .promotion-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    mat-card {
+      margin: 5px;
+      border-radius: 5px;
+      width: 33%;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        margin: auto;
+      }
+
+      .promotion-detail {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: center;
+      }
+     }
+  }
+}

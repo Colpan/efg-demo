@@ -23,10 +23,12 @@ import { AppStoreModule } from 'app/store/store.module';
 import { LayoutModule } from 'app/layout/layout.module';
 import { LanguageModule } from './language/language.module';
 import { RegisterModule } from './register/register.module';
-import {TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SplashModule } from './splash/splash.module';
 import { CountryModule } from './country/country.module';
+import { HomeModule } from './home/home.module';
+import { CompanyDetailModule } from './company-detail/company-detail.module';
 
 const appRoutes: Routes = [
     {
@@ -83,6 +85,8 @@ const appRoutes: Routes = [
         RegisterModule,
         SplashModule,
         CountryModule,
+        HomeModule,
+        CompanyDetailModule
     ],
     bootstrap   : [
         AppComponent
