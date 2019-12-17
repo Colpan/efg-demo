@@ -1,7 +1,13 @@
-<div class="container" *ngIf="retailGroup && retailGroup.products && retailGroup.products.length > 0">
+<div class="container" *ngIf="category && category.products && category.products.length > 0">
   <mat-list role="list">
-    <div *ngFor="let product of retailGroup.products">
-      <mat-list-item role="listitem">{{product.description_En}}</mat-list-item>
+    <div *ngFor="let product of category.products">
+      <mat-list-item role="listitem">
+        <img mat-line *ngIf="product.picture" [src]="product.picture">
+        <p mat-line *ngIf="!product.picture" class="text-danger">No Image</p>
+        <p mat-line>{{ product.id }}: {{ product | language : 'name_' }} - {{ product.unitPriceIncludingVat | currency }} {{ product.baseUnitOfMeasure }}</p>
+        <p mat-line>{{ product | language : 'description_' }}</p>
+      </mat-list-item>
+      <mat-divider></mat-divider>
     </div>
   </mat-list>
 </div>

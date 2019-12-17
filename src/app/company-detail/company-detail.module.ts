@@ -9,6 +9,7 @@ import { CompanyTabComponent } from './company-tab/company-tab.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatListModule } from '@angular/material/list';
+import { FusePipesModule } from '@fuse/pipes/pipes.module';
 
 const routes: Route[] = [
   {
@@ -33,6 +34,7 @@ const routes: Route[] = [
     MatTabsModule,
     MatListModule,
     MatProgressBarModule,
+    FusePipesModule,
     RouterModule.forChild(routes),
   ]
 })

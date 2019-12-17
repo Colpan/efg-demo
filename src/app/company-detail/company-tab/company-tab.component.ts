@@ -10,7 +10,7 @@ import { RetailProductGroup } from 'app/model/retail-product-group.model';
   styleUrls: ['./company-tab.component.scss']
 })
 export class CompanyTabComponent implements OnChanges {
-  @Input() retailGroup: RetailProductGroup;
+  @Input() category: MenuCategory;
   doneFetching = false;
 
   constructor() { }
