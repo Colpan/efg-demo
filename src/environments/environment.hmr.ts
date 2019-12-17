@@ -1,4 +1,5 @@
 export const environment = {
     production: false,
-    hmr       : true
+    hmr: false,
+    NODE_URI: 'http://localhost:4000'
 };
