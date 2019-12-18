@@ -7,13 +7,12 @@ import { PromotionProduct } from 'app/model/product.model';
   styleUrls: [],
 })
 export class PromotionProductComponent implements OnInit {
-  @Input() promotionProduct: PromotionProduct[] = [];
+  @Input() promotionProduct: PromotionProduct;
   @Input() isFetchingCity = false;
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.promotionProduct);
   }
 
 }
