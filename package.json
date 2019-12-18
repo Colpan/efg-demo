@@ -86,5 +86,9 @@
         "tslint": "5.15.0",
         "typescript": "3.4.5",
         "webpack-bundle-analyzer": "3.3.2"
+    },
+    "engines": {
+        "node": "8.12.0",
+        "npm": "6.12.1"
     }
 }
