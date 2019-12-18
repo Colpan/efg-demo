@@ -1,12 +1,11 @@
 <div class="container">
   <mat-progress-bar *ngIf="categories.length === 0" mode="indeterminate"></mat-progress-bar>
-  <div *ngIf="categories">
-    <mat-tab-group>
-      <div *ngFor="let category of categories">
-        <mat-tab label="{{category | language : 'description_' }}">
-          <app-company-tab [category]="category"></app-company-tab>
-        </mat-tab>
-      </div>
-    </mat-tab-group>
-  </div>
+  <mat-tab-group>
+    <mat-tab label="Promotions" *ngIf="company">
+      <app-promotion [promotions]="company.promotions"></app-promotion>
+    </mat-tab>
+    <mat-tab *ngFor="let category of categories" label="{{category | language : 'description_' }}">
+      <app-company-tab [category]="category"></app-company-tab>
+    </mat-tab>
+  </mat-tab-group>
 </div>

@@ -10,6 +10,8 @@ import { RouterModule, Route } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { PromotionComponent } from './promotion/promotion.component';
 import { FusePipesModule } from '@fuse/pipes/pipes.module';
+import { ProductComponent } from './product/product.component';
+import { PromotionProductComponent } from './promotion-product/promotion-product.component';
 
 const routes: Route[] = [
   {
@@ -29,12 +31,19 @@ const routes: Route[] = [
     HomeComponent,
     LocationComponent,
     PromotionComponent,
+    ProductComponent,
+    PromotionProductComponent,
   ],
   imports: [
     CommonModule,
     MatCardModule,
     FusePipesModule,
     RouterModule.forChild(routes),
-  ]
+  ],
+  exports: [
+    PromotionComponent,
+    ProductComponent,
+    PromotionProductComponent,
+  ],
 })
 export class HomeModule { }

@@ -1,0 +1,26 @@
+<div class="fuse-card p-16 mb-32">
+  <img [src]="promotionProduct.image">
+  <div class="promotionProduct-detail">
+
+    <p><b>currencyCode: </b>{{ promotionProduct.currencyCode }}</p>
+    <p><b>dealPriceOrDiscPercent: </b>{{ promotionProduct.dealPriceOrDiscPercent | percent }}</p>
+    <p><b>description: </b>{{ promotionProduct | language : 'description_' }}</p>
+    <p><b>discType: </b>{{ promotionProduct.discType }}</p>
+    <p><b>discountAmount: </b>{{ promotionProduct.discountAmount | currency}}</p>
+    <p><b>discountAmountIncVat: </b>{{ promotionProduct.discountAmountIncVat | currency}}</p>
+    <p><b>lineGroup: </b>{{ promotionProduct.lineGroup }}</p>
+    <p><b>lineNo: </b>{{ promotionProduct.lineNo }}</p>
+    <p><b>no: </b>{{ promotionProduct.no }}</p>
+    <p><b>noOfItemsNeeded: </b>{{ promotionProduct.noOfItemsNeeded }}</p>
+    <p><b>offerNo: </b>{{ promotionProduct.offerNo }}</p>
+    <p><b>offerPrice: </b>{{ promotionProduct.offerPrice | currency }}</p>
+    <p><b>offerPriceIncVat: </b>{{ promotionProduct.offerPriceIncVat | currency }}</p>
+    <p><b>priceGroup: </b>{{ promotionProduct.priceGroup }}</p>
+    <p><b>standardPrice: </b>{{ promotionProduct.standardPrice | currency }}</p>
+    <p><b>standardPriceIncVat: </b>{{ promotionProduct.standardPriceIncVat | currency }}</p>
+    <p><b>type: </b>{{ promotionProduct.type }}</p>
+    <p><b>unitOfMeasure: </b>{{ promotionProduct.unitOfMeasure }}</p>
+    <p><b>variantCode: </b>{{ promotionProduct.variantCode }}</p>
+
+  </div>
+</div>

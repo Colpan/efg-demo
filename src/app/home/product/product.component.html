@@ -1,0 +1,6 @@
+<div class="fuse-card p-16 mb-32" *ngIf="product">
+  <img *ngIf="product.picture" [src]="product.picture">
+  <p *ngIf="!product.picture" class="text-danger">No Image</p>
+  <p>{{ product.id }}: {{ product | language : 'name_' }} - {{ product.unitPriceIncludingVat | currency }} {{ product.baseUnitOfMeasure }}</p>
+  <p>{{ product | language : 'description_' }}</p>
+</div>

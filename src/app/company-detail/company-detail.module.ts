@@ -10,6 +10,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatListModule } from '@angular/material/list';
 import { FusePipesModule } from '@fuse/pipes/pipes.module';
+import { HomeModule } from 'app/home/home.module';
 
 const routes: Route[] = [
   {
@@ -30,6 +31,7 @@ const routes: Route[] = [
     CompanyTabComponent
   ],
   imports: [
+    HomeModule,
     CommonModule,
     MatTabsModule,
     MatListModule,

@@ -1,17 +1,47 @@
-<div class="container">
-  <h2 class="custom-title">Promotions</h2>
-  <div class="promotion-container">
-    <div *ngIf="(promotions.length === 0) && !isFetchingCity">
-      <p>No promotions to show.</p>
-    </div>
-    <div *ngFor="let promotion of promotions">
-      <mat-card>
-        <img mat-card-image [src]="promotion.image">
-        <div class="promotion-detail">
-          <mat-card-title>{{ promotion | language : 'name_' }}</mat-card-title>
-          <mat-card-subtitle>${{ promotion.from }}</mat-card-subtitle>
-        </div>
-      </mat-card>
+
+<div class="promotion-container">
+  <div *ngIf="!promotions || ((promotions.length === 0) && !isFetchingCity)">
+    <p>No promotions to show.</p>
+  </div>
+  <div class="fuse-card p-16 mb-32" *ngFor="let promotion of promotions">
+    <img [src]="promotion.image">
+    <div class="promotion-detail">
+      <p><b>amountToTrigger: </b><span>{{ promotion.amountToTrigger }}</span></p>
+      <p><b>brand: </b><span>{{ promotion.brand }}</span></p>
+      <p><b>couponCode: </b><span>{{ promotion.couponCode }}</span></p>
+      <p><b>couponQtyNeeded: </b><span>{{ promotion.couponQtyNeeded | number }}</span></p>
+      <p><b>dealPriceValue: </b><span>{{ promotion.dealPriceValue | currency }}</span></p>
+      <p><b>description: </b><span>{{ promotion | language : 'description_' }}</span></p>
+      <p><b>discPercentOfLeastExpensive: </b><span>{{ promotion.discPercentOfLeastExpensive | percent }}</span></p>
+      <p><b>discountAmountValue: </b><span>{{ promotion.discountAmountValue | currency }}</span></p>
+      <p><b>discountPercentValue: </b><span>{{ promotion.discountPercentValue | percent }}</span></p>
+      <p><b>discountType: </b><span>{{ promotion.discountType }}</span></p>
+      <p><b>divisionCode: </b><span>{{ promotion.divisionCode }}</span></p>
+      <p><b>endingDate: </b><span>{{ promotion.endingDate | date }}</span></p>
+      <p><b>memberAttribute: </b><span>{{ promotion.memberAttribute }}</span></p>
+      <p><b>memberAttributeValue: </b><span>{{ promotion.memberAttributeValue }}</span></p>
+      <p><b>memberType: </b><span>{{ promotion.memberType }}</span></p>
+      <p><b>no: </b><span>{{ promotion.no }}</span></p>
+      <p><b>noOfLeastExpensive: </b><span>{{ promotion.noOfLeastExpensive | number }}</span></p>
+      <p><b>noOfLineGroups: </b><span>{{ promotion.noOfLineGroups | number }}</span></p>
+      <p><b>offerType: </b><span>{{ promotion.offerType }}</span></p>
+      <p> *********** </p>
+      <p><b>periodicDiscountLine: </b></p>
+        <app-promotion-product
+          *ngFor="let promotionProduct of promotion.periodicDiscountLine"
+          [promotionProduct]="promotionProduct">
+        </app-promotion-product>
+      <p> *********** </p>
+
+      <p><b>popUpLine1: </b><span>{{ promotion.popUpLine1 }}</span></p>
+      <p><b>popUpLine2: </b><span>{{ promotion.popUpLine2 }}</span></p>
+      <p><b>popUpLine3: </b><span>{{ promotion.popUpLine3 }}</span></p>
+      <p><b>priceGroup: </b><span>{{ promotion.priceGroup }}</span></p>
+      <p><b>sameDifMmLine: </b><span>{{ promotion.sameDifMmLine }}</span></p>
+      <p><b>startingDate: </b><span>{{ promotion.startingDate  | date }}</span></p>
+      <p><b>status: </b><span>{{ promotion.status }}</span></p>
+      <p><b>validationPeriod: </b><span>{{ promotion.validationPeriod }}</span></p>
+
     </div>
   </div>
 </div>
