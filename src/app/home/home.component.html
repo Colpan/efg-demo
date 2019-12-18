@@ -2,7 +2,10 @@
   <div class="container">
     <h1>Explore</h1>
     <app-location [country]="country" [city]="city"></app-location>
-    <app-company [companies]="companies" [isFetchingCity]="isFetchingCity"></app-company>
+    <div class="container">
+      <h2 class="custom-title">Companies</h2>
+      <app-company [companies]="companies" [isFetchingCity]="isFetchingCity"></app-company>
+    </div>
     <div class="container">
       <h2 class="custom-title">Promotions</h2>
       <app-promotion [promotions]="promotions" [isFetchingCity]="isFetchingCity"></app-promotion>

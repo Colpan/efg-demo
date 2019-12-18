@@ -3,7 +3,7 @@
   <div *ngIf="!promotions || ((promotions.length === 0) && !isFetchingCity)">
     <p>No promotions to show.</p>
   </div>
-  <div class="fuse-card p-16 mb-32" *ngFor="let promotion of promotions">
+  <div class="fuse-card p-16 mb-16" *ngFor="let promotion of promotions">
     <img [src]="promotion.image">
     <div class="promotion-detail">
       <p><b>amountToTrigger: </b><span>{{ promotion.amountToTrigger }}</span></p>

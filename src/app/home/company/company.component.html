@@ -1,15 +1,12 @@
-<div class="container">
-  <h2 class="custom-title">Companies</h2>
-  <div class="company-container">
-    <div *ngIf="(companies.length === 0) && !isFetchingCity">
-      <p>No company to show.</p>
-    </div>
-    <div *ngFor="let company of companies">
-      <mat-card (click)="selectCompany(company.id)">
-        <img *ngIf="company.logo" mat-card-image [src]="company.logo">
-        <h3 *ngIf="!company.logo">No Image</h3>
-        <mat-card-title>{{ company | language : 'name_' }}</mat-card-title>
-      </mat-card>
+<div class="company-container">
+  <div *ngIf="(companies.length === 0) && !isFetchingCity">
+    <p>No company to show.</p>
+  </div>
+  <div *ngFor="let company of companies">
+    <div class="fuse-card p-16 mb-16" (click)="selectCompany(company.id)">
+      <img *ngIf="company.logo" mat-card-image [src]="company.logo">
+      <h2 *ngIf="!company.logo">No Image</h2>
+      <h3>{{ company | language : 'name_' }}</h3>
     </div>
   </div>
 </div>
